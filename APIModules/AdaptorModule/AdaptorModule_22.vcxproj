@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>server_AdaptorModule</ProjectName>
+    <ProjectGuid>{F7D87224-BAE3-4ACE-94BD-87F1C7A0802F}</ProjectGuid>
+    <RootNamespace>AdaptorModule</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.50727.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>D:\zRS_BuildOutput_08\$(Configuration)_bin\$(ProjectName)\</OutDir>
+    <IntDir>D:\zRS_BuildOutput_08\$(Configuration)_obj\$(ProjectName)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>D:\zRS_BuildOutput_08\$(Configuration)_bin\$(ProjectName)\</OutDir>
+    <IntDir>D:\zRS_BuildOutput_08\$(Configuration)_obj\$(ProjectName)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>D:\QTSS_Note\Release\AdaptorModule/AdaptorModule.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <Optimization>MinSpace</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>../relayServer/;../relayServer/PrefsSourceLib/;../relayServer/RTCPUtilitiesLib/;../relayServer/Server.tproj/;../relayServer/CommonUtilitiesLib/;../relayServer/APICommonCode;../relayServer/RTPMetaInfoLib/;../relayServer/APIStubLib/;../../common/Include/;../../../Include/;../../../Include/Utility;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_I__AdaptorModule_;WIN32;NDEBUG;_WINDOWS;_USRDLL;_RELAY_SERVER_MODULE_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <BrowseInformation>true</BrowseInformation>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ForcedIncludeFiles>../relayServer/WinNTSupport/Win32header.h;..\..\common\IncludeCfg.h;..\..\common\SocketVerConflictIssue.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>Winmm.lib;Ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>D:\RSDLL_08;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <BaseAddress>0x70C00000</BaseAddress>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Bscmake>
+    <PostBuildEvent>
+      <Command>xcopy    /C    /R    /Y        "$(TargetDir)$(TargetName).dll"     "D:\RSDLL_08\serverModules\"
+xcopy    /C    /R    /Y        "$(TargetDir)$(TargetName).pdb"  "D:\RSDLL_08\serverModules\"
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>D:\QTSS_Note\Debug\AdaptorModule/AdaptorModule.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../relayServer/;../relayServer/PrefsSourceLib/;../relayServer/RTCPUtilitiesLib/;../relayServer/Server.tproj/;../relayServer/CommonUtilitiesLib/;../relayServer/APICommonCode;../relayServer/RTPMetaInfoLib/;../relayServer/APIStubLib/;../../common/Include/;../../../Include/;../../../Include/Utility;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_I__AdaptorModule_;WIN32;_DEBUG;_WINDOWS;_USRDLL;_RELAY_SERVER_MODULE_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <ForcedIncludeFiles>../relayServer/WinNTSupport/Win32header.h;..\..\common\IncludeCfg.h;..\..\common\SocketVerConflictIssue.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0804</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>Winmm.lib;Ws2_32.lib;odbc32.lib;odbccp32.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName)D.dll</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>D:\RSDLL_08;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>LibCMT.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <BaseAddress>0x70C00000</BaseAddress>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Bscmake>
+    <PostBuildEvent>
+      <Command>xcopy    /C    /R    /Y        "$(TargetDir)$(TargetName).dll"     "D:\RSDLL_08\serverModulesD\"
+xcopy    /C    /R    /Y        "$(TargetDir)$(TargetName).pdb"  "D:\RSDLL_08\serverModulesD\"
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AdaptorModule.cpp" />
+    <ClCompile Include="AdaptorModuleImp.cpp" />
+    <ClCompile Include="ChanInfo.cpp" />
+    <ClCompile Include="ChannelElem_4_Channel_S_map.cpp" />
+    <ClCompile Include="ChannelSharedMapping.cpp" />
+    <ClCompile Include="ConnectionElem.cpp" />
+    <ClCompile Include="ModuleAdaptor.cpp" />
+    <ClCompile Include="ModuleFunction.cpp" />
+    <ClCompile Include="..\RelayServer\CommonUtilitiesLib\myPrintf.cpp" />
+    <ClCompile Include="QTSSLogging.cpp" />
+    <ClCompile Include="StreamPackager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AdaptorModule.h" />
+    <ClInclude Include="AdaptorModuleImp.h" />
+    <ClInclude Include="ChanInfo.h" />
+    <ClInclude Include="ChannelElem_4_Channel_S_map.h" />
+    <ClInclude Include="ChannelSharedMapping.h" />
+    <ClInclude Include="ConnectionElem.h" />
+    <ClInclude Include="ModuleAdaptor.h" />
+    <ClInclude Include="ModuleFunction.h" />
+    <ClInclude Include="QTSSLogging.h" />
+    <ClInclude Include="StreamingServerFiles.h" />
+    <ClInclude Include="StreamPackager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="AdaptorModule.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
