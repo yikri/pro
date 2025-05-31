@@ -21,6 +21,8 @@
     <SccProjectName />
     <SccLocalPath />
     <ProjectGuid>{3A33B0A3-A592-4A5A-A0C4-80A8D46C4359}</ProjectGuid>
+    <WindowsTargetPlatformVersion>
+    </WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" Label="Configuration">
@@ -34,7 +36,7 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <PlatformToolset>v143</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
@@ -58,6 +60,10 @@
     <OutDir>.\Debug\</OutDir>
     <IntDir>.\Debug\</IntDir>
     <LinkIncremental>true</LinkIncremental>
+    <AllProjectIncludesArePublic>
+    </AllProjectIncludesArePublic>
+    <SourcePath>C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\atlmfc\src\mfc;$(SourcePath)</SourcePath>
+    <IncludePath>C:\Program Files %28x86%29\Windows Kits\NETFXSDK\4.8\Lib\um;E:\Windows Kits\10\Lib;E:\Windows Kits\10\Include;E:\Windows Kits\10\Lib\10.0.26100.0\um;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>.\Release\</OutDir>
@@ -217,7 +223,9 @@
     <ClCompile Include="..\Server.tproj\RTSPSession.cpp" />
     <ClCompile Include="..\Server.tproj\RTSPSessionInterface.cpp" />
     <ClCompile Include="..\Server.tproj\RunServer.cpp" />
-    <ClCompile Include="..\Server.tproj\win32main.cpp" />
+    <ClCompile Include="..\Server.tproj\win32main.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
     <ClCompile Include="..\RTSPClientLib\ClientSocket.cpp" />
     <ClCompile Include="..\RTSPClientLib\RTSPClient.cpp" />
     <ClCompile Include="..\RTCPUtilitiesLib\RTCPAckPacket.cpp" />

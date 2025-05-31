@@ -12,6 +12,7 @@
   </ItemGroup>
   <PropertyGroup>
     <MSBuildWarningsAsMessages>MSB8012</MSBuildWarningsAsMessages>
+   <WindowsSDKDir>E:\Windows Kits\10\</WindowsSDKDir>
   </PropertyGroup>
   <PropertyGroup Label="Globals">
     <SccProjectName />
